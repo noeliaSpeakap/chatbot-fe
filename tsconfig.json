@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx", // Using modern JSX transform
+    "baseUrl": ".", // Allows absolute imports based on baseUrl
+    "paths": {
+      "@/*": ["./src/*"] // Use "@/..." for absolute imports from `src`
+    },
+
+    /* Basic options */
+    "target": "ES2020", // ES2020 for modern JavaScript features
+    "module": "ESNext", // ESNext modules for the latest import/export syntax
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    "useDefineForClassFields": true, // Enables support for modern class field behavior
+
+    /* Enable strict type checking */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Bundler settings */
+    "moduleResolution": "bundler", // Bundler mode for Vite
+    "allowImportingTsExtensions": true, // Allows importing TypeScript files with extensions
+    "isolatedModules": true, // Required for isolated module transpilation
+    "moduleDetection": "force", // Ensures ES modules are detected correctly
+    "noEmit": true, // Do not emit output files, handled by Vite
+
+    /* Skips checking types for node_modules, useful for performance */
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*", // Include all TypeScript files in `src`
+    "vite.config.ts", // Include Vite config for TypeScript
+    "postcss.config.cjs", // Include PostCSS config
+    "tailwind.config.js", // Include Tailwind config
+    "cypress", // Include Cypress tests
+    "cypress.config.ts", // Include Cypress TypeScript config
+    "cypress.d.ts"
+  ],
+  "exclude": [
+    "node_modules", // Exclude node_modules to avoid unnecessary checking
+    "dist" // Exclude build output
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json" // Include specific settings for Node.js (if used)
+    }
+  ]
+}
